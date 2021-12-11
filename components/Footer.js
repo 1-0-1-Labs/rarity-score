@@ -1,6 +1,6 @@
 import React from "react";
 import { FiCoffee } from "react-icons/fi";
-import { IoLogoGithub, IoLogoTwitter } from "react-icons/io";
+import { IoLogoTwitter, IoIosRocket, IoIosHammer } from "react-icons/io";
 
 export const Footer = () => {
   return (
@@ -21,7 +21,7 @@ export const Footer = () => {
         target="_blank"
       >
         <span className="text-lg mr-1">
-          <IoMdHammer />
+          <IoIosHammer />
         </span>
         Mint Website
       </a>
@@ -31,7 +31,7 @@ export const Footer = () => {
         target="_blank"
       >
         <span className="text-lg mr-1">
-          <IoMdRocket />
+          <IoIosRocket />
         </span>
         La Famiglia Linktree
       </a>
