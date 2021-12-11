@@ -1,9 +1,10 @@
 export const config = {
-  env: "local",
+  env: "prod",
   LOCAL_API_URL: "localhost:3000",
-  API_URL: "odp-rarity.vercel.app",
-  COLLECTION_NAME: "OneDayPunks",
-  COLLECTION_TITLE: "One Day Punks",
-  COLLECTION_DESCRIPTION: '10k "One Day I\'ll Be A Punk"-punks.',
-  COLLECTION_IMG_LINK: "https://punkscape.xyz/og.png",
+  API_URL: "rarity-score-lafamiglia.vercel.app/",
+  COLLECTION_NAME: "LaFamiglia",
+  COLLECTION_TITLE: "La Famiglia",
+  COLLECTION_DESCRIPTION: "Welcome to the Family!",
+  COLLECTION_IMG_LINK:
+    "https://rarity-score-lafamiglia.vercel.app/public/1500x500.jpeg",
 };
