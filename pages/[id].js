@@ -82,7 +82,7 @@ function NFT({ nft, title }) {
             </div>
             {nft.current_price !== "-" && (
               <div className="py-4 px-2 w-full rounded-md text-lg mt-4 bg-green-100 text-green-500">
-                <span>{`Ξ ${formatPrice(nft?.current_price)}`}</span>
+                <span>{`${formatPrice(nft?.current_price)} SOL`}</span>
               </div>
             )}
 
@@ -91,17 +91,21 @@ function NFT({ nft, title }) {
               href={nft?.opensea_link}
               target="_blank"
             >
-              🛒 Opensea
+              🛒 Magic Eden (Coming soon)
             </a>
             <div className="py-4 flex flex-col items-start justify-start">
-              {/* <h2 className="px-2 text-xl mb-2 font-bold text-gray-800">Traits</h2> */}
+              {
+                <h2 className="px-2 text-xl mb-2 font-bold text-gray-800">
+                  Traits
+                </h2>
+              }
               {nft?.attributes?.map((attribute, idx) => (
                 <Trait key={idx} {...attribute} />
               ))}
               {/* <h2 className="px-2 text-xl mb-2 font-bold text-gray-800">Missing Traits</h2> */}
-              {nft?.missing_traits?.map((attribute, idx) => (
+              {/*               {nft?.missing_traits?.map((attribute, idx) => (
                 <Trait key={idx * 100} {...attribute} />
-              ))}
+              ))} */}
             </div>
           </div>
         </main>
@@ -114,11 +118,12 @@ function NFT({ nft, title }) {
 NFT.getInitialProps = async ({ query }) => {
   let nft = await getNFT(query.id);
   let opensea_info = await getNFTInfo(query.id);
-  nft["opensea_link"] = opensea_info["assets"][0]["permalink"];
+  //console.log()
+  //nft["opensea_link"] = opensea_info["assets"][0]["permalink"];
   nft["current_price"] = "-";
-  if (opensea_info["assets"][0]["sell_orders"])
-    nft["current_price"] =
-      opensea_info["assets"][0]["sell_orders"][0]["current_price"]; //last price
+  /*   if (opensea_info["assets"][0]["sell_orders"]) {
+    nft["current_price"] = opensea_info["assets"][0]["sell_orders"][0]["current_price"]; //last price
+  } */
   if (nft) return { nft, title: config.COLLECTION_TITLE };
   else return { nft: {}, title: config.COLLECTION_TITLE };
 };
